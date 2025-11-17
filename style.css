@@ -1,125 +1,57 @@
-/* ======== GENERAL & ANIMACIONES ======== */
+/* ======== GENERAL ======== */
 body {
-    padding-top: 70px; /* Espacio para el navbar fijo */
-    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-    transition: background-color 0.3s, color 0.3s;
+    padding-top: 70px;
+    font-family: 'Segoe UI', system-ui, sans-serif;
 }
 
-.fade-in {
-    animation: fadeIn 0.5s ease-in-out;
+.btn-icon {
+    width: 40px; height: 40px; padding: 0;
+    display: inline-flex; align-items: center; justify-content: center;
 }
 
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
-}
+/* ======== ANIMACIONES ======== */
+.fade-in { animation: fadeIn 0.5s ease-in-out; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
-.animate-up {
-    animation: slideUp 0.8s ease-out forwards;
-    opacity: 0;
-    transform: translateY(30px);
-}
-
+.animate-up { animation: slideUp 0.8s ease-out forwards; opacity: 0; transform: translateY(30px); }
 .delay-1 { animation-delay: 0.2s; }
 .delay-2 { animation-delay: 0.4s; }
+@keyframes slideUp { to { opacity: 1; transform: translateY(0); } }
 
-@keyframes slideUp {
-    to { opacity: 1; transform: translateY(0); }
-}
-
-/* ======== HERO SECTION (INICIO) ======== */
+/* ======== HERO & CARDS ======== */
 .hero-section {
     background-image: url('https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?q=80&w=1920&auto=format&fit=crop');
-    background-size: cover;
-    background-position: center;
-    height: 85vh;
-    width: 100%;
-    margin-top: -20px; /* Ajuste visual */
+    background-size: cover; background-position: center; height: 60vh; margin-top: -20px;
 }
-
 .hero-section .overlay {
-    position: absolute;
-    top: 0; left: 0; width: 100%; height: 100%;
-    background: linear-gradient(to bottom, rgba(0,0,0,0.6), rgba(0,0,0,0.8));
-    z-index: 1;
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.4), rgba(0,0,0,0.8)); z-index: 1;
 }
 
-/* ======== COMPONENTES ======== */
-.hover-card {
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-.hover-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.1) !important;
-}
+.hover-card { transition: transform 0.3s ease, box-shadow 0.3s ease; }
+.hover-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.15) !important; }
+.card-img-top { height: 200px; object-fit: cover; }
 
-.card-img-top {
-    height: 220px;
-    object-fit: cover;
+/* Botón Favorito en Card */
+.fav-btn-card {
+    position: absolute; top: 10px; right: 10px;
+    background: rgba(255,255,255,0.8); border: none;
+    border-radius: 50%; width: 35px; height: 35px;
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer; z-index: 10; transition: all 0.2s;
 }
+.fav-btn-card:hover { transform: scale(1.1); background: white; }
+.fav-btn-card.active { color: #dc3545; }
 
-/* ======== DARK MODE OVERRIDES Específicos ======== */
-[data-bs-theme="dark"] .bg-light {
-    background-color: #2b3035 !important;
+/* ======== DARK MODE ======== */
+[data-bs-theme="dark"] .bg-light, [data-bs-theme="dark"] .bg-body-tertiary { background-color: #212529 !important; }
+[data-bs-theme="dark"] .card { background-color: #2b3035; border-color: #373b3e; }
+[data-bs-theme="dark"] .input-group-text, [data-bs-theme="dark"] .form-control, [data-bs-theme="dark"] .form-select {
+    background-color: #2b3035; border-color: #495057; color: #e9ecef;
 }
-
-[data-bs-theme="dark"] .card {
-    background-color: #212529;
-    border-color: #373b3e;
-}
+[data-bs-theme="dark"] .fav-btn-card { background: rgba(0,0,0,0.6); color: #fff; }
+[data-bs-theme="dark"] .fav-btn-card:hover { background: black; }
 
 /* ======== CARRITO ======== */
-.cart-item {
-    background: var(--bs-body-bg);
-    border: 1px solid var(--bs-border-color);
-    border-radius: 0.5rem;
-    padding: 10px;
-    display: flex;
-    align-items: center;
-}
-
-.cart-item-img {
-    width: 70px;
-    height: 70px;
-    object-fit: cover;
-    border-radius: 0.3rem;
-    margin-right: 15px;
-
-
-}
-
-/* ======== MEJORA DE BARRA DE BÚSQUEDA ======== */
-
-/* Hacemos que el input y la lupa tengan el mismo color de borde y fondo */
-.input-group-text, 
-#filterSearch, 
-#filterCategory, 
-#filterSort {
-    background-color: var(--bs-body-bg); 
-    border-color: #dee2e6; /* Color de borde suave por defecto */
-}
-
-/* Unificar visualmente la lupa con el input */
-.input-group:focus-within .input-group-text {
-    border-color: #86b7fe; /* Color de foco de Bootstrap (azul) */
-}
-.input-group:focus-within #filterSearch {
-    border-color: #86b7fe;
-    box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25); /* Sombra de foco */
-}
-
-/* === AJUSTES MODO OSCURO === */
-[data-bs-theme="dark"] .input-group-text,
-[data-bs-theme="dark"] #filterSearch,
-[data-bs-theme="dark"] #filterCategory,
-[data-bs-theme="dark"] #filterSort {
-    background-color: #212529; /* Fondo oscuro */
-    border-color: #495057;     /* Borde gris oscuro */
-    color: #e9ecef;            /* Texto claro */
-}
-
-/* Cuando el usuario hace clic en modo oscuro */
-[data-bs-theme="dark"] .input-group:focus-within .input-group-text,
-[data-bs-theme="dark"] .input-group:focus-within #filterSearch {
-    border-color: #0d6efd; /* Azul primario */
-}
+.cart-item { display: flex; align-items: center; padding: 10px; border-bottom: 1px solid var(--bs-border-color); }
+.cart-item-img { width: 60px; height: 60px; object-fit: cover; border-radius: 5px; margin-right: 10px; }
