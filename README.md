@@ -45,10 +45,10 @@ Este proyecto fue construido utilizando tecnologías estándar de la industria:
 
 ### Despliegue en la Nube
 Este proyecto está optimizado para desplegarse en **GitHub Pages** o **Vercel**.
-* **Demo en vivo:** [Inserta aquí tu link de Vercel o GitHub Pages]
+* **Demo en vivo:** https://pg-web-venta-carro.vercel.app/ 
 
 ## Créditos y Licencias 📄
-* **Desarrollado por:** [Tu Nombre]
+* **Desarrollado por:** Leandro ELias Reyes Joaquin
 * **Licencia:** MIT License - Uso libre con atribución.
 * **Imágenes:** Unsplash (Uso libre).
 * **Iconos:** Font Awesome Free.
